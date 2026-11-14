@@ -1,0 +1,31 @@
+.logo {
+    color: #3B5BDB;
+    font-weight: bold;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+
+}
+
+.nav-menu>li {
+    padding: 5px;
+    font-weight: bold;
+}
+
+.nav-menu>li>a {
+    color: black;
+}
+
+.nav-menu>li>a:hover {
+    color: #3B5BDB;
+}
+
+.navbar-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+
+}
