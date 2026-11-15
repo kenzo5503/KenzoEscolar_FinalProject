@@ -118,3 +118,115 @@
             padding: .5rem 1rem;
             margin-left: .25rem;
             transition: background-color .2s ease, color .2s ease, transform .2s ease;
+
+            /* every menu item gets its own hover color, matching its category color */
+            .tcsk-nav .nav-link:hover,
+            .tcsk-nav .nav-link:focus-visible {
+                transform: translateY(-2px);
+            }
+
+            .tcsk-nav .nav-link.hover-blue:hover,
+            .tcsk-nav .nav-link.hover-blue:focus-visible {
+                background: var(--tcsk-blue);
+                color: #fff;
+            }
+
+            .tcsk-nav .nav-link.hover-yellow:hover,
+            .tcsk-nav .nav-link.hover-yellow:focus-visible {
+                background: var(--tcsk-yellow);
+                color: var(--tcsk-dark);
+            }
+
+            .tcsk-nav .nav-link.hover-teal:hover,
+            .tcsk-nav .nav-link.hover-teal:focus-visible {
+                background: var(--tcsk-teal);
+                color: var(--tcsk-dark);
+            }
+
+            .tcsk-nav .nav-link.hover-dark:hover,
+            .tcsk-nav .nav-link.hover-dark:focus-visible {
+                background: var(--tcsk-dark);
+                color: #fff;
+            }
+
+            /* Mobile menu without JavaScript: a hidden checkbox controls the panel */
+            .menu-toggle {
+                position: absolute;
+                opacity: 0;
+                pointer-events: none;
+            }
+
+            .menu-button {
+                display: none;
+                font-size: 1.6rem;
+                line-height: 1;
+                border: 2px solid var(--tcsk-dark);
+                border-radius: 10px;
+                padding: .2rem .65rem;
+                cursor: pointer;
+                background: #fff;
+            }
+
+            .menu-button:hover {
+                background: var(--tcsk-yellow);
+            }
+
+            .menu-toggle:focus-visible+.menu-button {
+                outline: 3px solid var(--tcsk-yellow);
+                outline-offset: 2px;
+            }
+
+            @media (max-width: 991.98px) {
+                .menu-button {
+                    display: block;
+                }
+
+                .menu-panel {
+                    display: none;
+                    width: 100%;
+                }
+
+                .menu-toggle:checked~.menu-panel {
+                    display: block;
+                    margin-top: .75rem;
+                }
+            }
+
+            .tcsk-nav .container {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            @media (min-width: 992px) {
+                .menu-panel {
+                    display: flex;
+                    flex-grow: 1;
+                }
+            }
+
+            /* FAQ without JavaScript: <details> opens and closes by itself */
+            .faq details {
+                border-bottom: 1px solid #ced4da;
+                padding: .75rem 0;
+            }
+
+            .faq summary {
+                cursor: pointer;
+                font-weight: 600;
+                list-style-position: inside;
+            }
+
+            .faq summary:hover {
+                color: var(--tcsk-blue);
+            }
+
+            .faq details[open] summary {
+                color: var(--tcsk-blue);
+            }
+
+            .faq details p {
+                margin: .6rem 0 0;
+                color: #343a40;
+            }
