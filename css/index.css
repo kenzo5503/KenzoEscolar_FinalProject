@@ -77,3 +77,44 @@
         border-radius: 6px;
         background: var(--tcsk-blue);
         margin-top: 0.5rem;
+
+        /* skip link for keyboard users */
+        .skip-link {
+            position: absolute;
+            left: -999px;
+            top: 0;
+            background: var(--tcsk-yellow);
+            color: var(--tcsk-dark);
+            padding: .5rem 1rem;
+            z-index: 2000;
+            font-weight: 600;
+        }
+
+        .skip-link:focus {
+            left: 0;
+        }
+
+        /* 3. NAVBAR -------------------------------------------- */
+        .tcsk-nav {
+            background: #fff;
+            border-bottom: 3px solid var(--tcsk-dark);
+            padding: .6rem 0;
+        }
+
+        .tcsk-nav .navbar-brand {
+            color: var(--tcsk-blue);
+            font-size: 1.5rem;
+            transition: color .2s ease;
+        }
+
+        .tcsk-nav .navbar-brand:hover {
+            color: var(--tcsk-teal-dark);
+        }
+
+        .tcsk-nav .nav-link {
+            color: var(--tcsk-dark);
+            font-weight: 600;
+            border-radius: 999px;
+            padding: .5rem 1rem;
+            margin-left: .25rem;
+            transition: background-color .2s ease, color .2s ease, transform .2s ease;
