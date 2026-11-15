@@ -65,7 +65,6 @@ section {
     outline-offset: 2px;
 }
 
-
 .heading-bar {
     display: inline-block;
 }
@@ -79,7 +78,6 @@ section {
     background: var(--tcsk-blue);
     margin-top: 0.5rem;
 }
-
 
 .skip-link {
     position: absolute;
@@ -96,7 +94,7 @@ section {
     left: 0;
 }
 
-
+/* 3. NAVBAR -------------------------------------------- */
 .tcsk-nav {
     background: #fff;
     border-bottom: 3px solid var(--tcsk-dark);
@@ -121,7 +119,6 @@ section {
     margin-left: .25rem;
     transition: background-color .2s ease, color .2s ease, transform .2s ease;
 }
-
 
 .tcsk-nav .nav-link:hover,
 .tcsk-nav .nav-link:focus-visible {
@@ -152,7 +149,7 @@ section {
     color: #fff;
 }
 
-
+/* Mobile menu without JavaScript: a hidden checkbox controls the panel */
 .menu-toggle {
     position: absolute;
     opacity: 0;
@@ -179,6 +176,13 @@ section {
     outline-offset: 2px;
 }
 
+.tcsk-nav .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
 @media (max-width: 991.98px) {
     .menu-button {
         display: block;
@@ -195,13 +199,6 @@ section {
     }
 }
 
-.tcsk-nav .container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-}
-
 @media (min-width: 992px) {
     .menu-panel {
         display: flex;
@@ -214,7 +211,7 @@ section {
     }
 }
 
-
+/* FAQ without JavaScript */
 .faq details {
     border-bottom: 1px solid #ced4da;
     padding: .75rem 0;
@@ -239,7 +236,7 @@ section {
     color: #343a40;
 }
 
-
+/* 4. BUTTONS, BADGES, TAGS ------------------------------ */
 .btn {
     border-radius: 12px;
     font-weight: 600;
@@ -337,7 +334,7 @@ section {
     text-decoration: underline;
 }
 
-
+/* 5. HERO ---------------------------------------------- */
 .hero {
     background: var(--tcsk-blue);
     color: #fff;
@@ -366,10 +363,6 @@ section {
 }
 
 .hero-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
     border: 2px solid var(--tcsk-dark);
     border-radius: 28px;
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
@@ -403,7 +396,6 @@ section {
     border-top: 8px solid var(--tcsk-teal);
 }
 
-/* category cards: whole card changes color on hover */
 .cat-card {
     text-decoration: none;
     color: var(--tcsk-dark);
@@ -470,7 +462,6 @@ section {
     background: var(--tcsk-teal-tint);
 }
 
-/* tip + tool cards */
 .tip-card .photo {
     border-bottom: 2px solid var(--tcsk-dark);
 }
@@ -524,478 +515,435 @@ section {
     font-size: .9rem;
 }
 
+/* 7. SECTION HEADERS AND BANDS ------------------------- */
 .page-header {
     padding: 4rem 0 3rem;
-
-
-    .page-header .eyebrow {
-        display: block;
-        font-weight: 700;
-        font-size: .8rem;
-        text-transform: uppercase;
-        letter-spacing: .08em;
-        margin-bottom: .75rem;
-    }
-
-    .page-header .page-title {
-        font-size: clamp(1.9rem, 4vw, 3rem);
-    }
-
-    .page-header p.lead {
-        max-width: 42rem;
-    }
-
-    .header-teal {
-        background: var(--tcsk-teal);
-        color: var(--tcsk-dark);
-    }
-
-    .header-teal .eyebrow {
-        color: var(--tcsk-dark);
-    }
-
-    .header-light {
-        background: var(--tcsk-light);
-    }
-
-    .header-light .eyebrow {
-        color: var(--tcsk-blue);
-    }
-
-    .band-teal {
-        background: var(--tcsk-teal);
-        color: var(--tcsk-dark);
-    }
-
-    .band-teal .why-card {
-        background: #fff;
-        border-radius: var(--tcsk-radius);
-        padding: 1.75rem;
-        height: 100%;
-        transition: transform .2s ease, box-shadow .2s ease;
-    }
-
-    .band-teal .why-card:hover {
-        transform: translateY(-6px);
-        box-shadow: var(--tcsk-shadow);
-    }
-
-    .why-card .why-icon {
-        font-size: 1.8rem;
-    }
-
-    .band-blue {
-        background: var(--tcsk-blue);
-        color: #fff;
-    }
-
-    .subscribe-card {
-        background: #fff;
-        color: var(--tcsk-dark);
-        border-radius: var(--tcsk-radius);
-        padding: 2rem;
-    }
-
-
-    .step-num {
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        background: var(--tcsk-blue);
-        color: #fff;
-        font-weight: 700;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: .6rem;
-    }
-
-    .note-box {
-        border-left: 6px solid var(--tcsk-yellow);
-        background: var(--tcsk-yellow-tint);
-        border-radius: 0 12px 12px 0;
-        padding: 1rem 1.25rem;
-    }
-
-    .note-box.teal {
-        border-color: var(--tcsk-teal);
-        background: var(--tcsk-teal-tint);
-    }
-
-    .note-box.blue {
-        border-color: var(--tcsk-blue);
-        background: var(--tcsk-blue-tint);
-    }
-
-
-    .spot-feature {
-        border: 2px solid var(--tcsk-dark);
-        border-radius: var(--tcsk-radius);
-        overflow: hidden;
-        background: #fff;
-    }
-
-    .spot-feature .photo {
-        border-bottom: 2px solid var(--tcsk-dark);
-    }
-
-    .spot-feature .spot-body {
-        padding: 1.75rem;
-    }
-
-    .spot-feature h3 {
-        font-size: 1.6rem;
-    }
-
-    .spot-feature dl {
-        margin: 1rem 0 0;
-    }
-
-    .spot-feature dt {
-        font-weight: 700;
-        margin-top: .9rem;
-    }
-
-    .spot-feature dd {
-        margin: 0;
-        color: #343a40;
-    }
-
-    .spot-list {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .spot-sticky {
-        position: sticky;
-        top: 1rem;
-    }
-
-    .spot-btn {
-        text-decoration: none;
-        display: flex;
-        gap: 1rem;
-        align-items: center;
-        text-align: left;
-        width: 100%;
-        border: 2px solid var(--tcsk-dark);
-        border-top-width: 8px;
-        border-radius: 14px;
-        background: #fff;
-        padding: .9rem;
-        color: var(--tcsk-dark);
-        transition: transform .2s ease, background-color .2s ease, box-shadow .2s ease;
-    }
-
-    .spot-btn:nth-child(4n+1),
-    .spot-btn:nth-child(4n+4) {
-        border-top-color: var(--tcsk-blue);
-    }
-
-    .spot-btn:nth-child(4n+2) {
-        border-top-color: var(--tcsk-yellow);
-    }
-
-    .spot-btn:nth-child(4n+3) {
-        border-top-color: var(--tcsk-teal);
-    }
-
-    .spot-btn:hover {
-        transform: translateX(6px);
-        background: var(--tcsk-blue-tint);
-        color: var(--tcsk-dark);
-    }
-
-    .spot-btn:nth-child(4n+2):hover {
-        background: var(--tcsk-yellow-tint);
-    }
-
-    .spot-btn:nth-child(4n+3):hover {
-        background: var(--tcsk-teal-tint);
-    }
-
-    .spot-btn .thumb {
-        width: 64px;
-        height: 64px;
-        flex: none;
-        border-radius: 12px;
-        border: 2px solid var(--tcsk-dark);
-        background: #e9ecef;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.6rem;
-    }
-
-    .spot-btn strong {
-        display: block;
-        font-family: "Poppins", sans-serif;
-    }
-
-    .spot-btn small {
-        color: var(--tcsk-muted);
-    }
-
-    .quick-table th {
-        background: var(--tcsk-dark);
-        color: #fff;
-        white-space: nowrap;
-    }
-
-    .quick-table td,
-    .quick-table th {
-        vertical-align: middle;
-    }
-
-    .quick-table tbody tr {
-        transition: background-color .15s ease;
-    }
-
-    .quick-table tbody tr:hover {
-        background: var(--tcsk-blue-tint);
-    }
-
-
-    .panel {
-        border: 2px solid var(--tcsk-dark);
-        border-radius: var(--tcsk-radius);
-        background: #fff;
-        padding: 1.5rem;
-    }
-
-    .panel.top-blue {
-        border-top: 8px solid var(--tcsk-blue);
-    }
-
-    .panel.top-yellow {
-        border-top: 8px solid var(--tcsk-yellow);
-    }
-
-    .panel.top-teal {
-        border-top: 8px solid var(--tcsk-teal);
-    }
-
-    .panel ul {
-        padding-left: 1.2rem;
-    }
-
-    .panel li {
-        margin-bottom: .5rem;
-    }
-
-    .calc-result {
-        background: var(--tcsk-teal-tint);
-        border-radius: 12px;
-        padding: 1rem 1.25rem;
-    }
-
-    .split-row {
-        display: flex;
-        justify-content: space-between;
-        padding: .45rem 0;
-        border-bottom: 1px dashed #adb5bd;
-    }
-
-    .split-row:last-of-type {
-        border-bottom: 0;
-    }
-
-    .price-table {
-        font-size: .93rem;
-        margin-bottom: .5rem;
-    }
-
-    .price-table th {
-        background: var(--tcsk-light);
-    }
-
-    .price-table td:last-child,
-    .price-table th:last-child {
-        text-align: right;
-        white-space: nowrap;
-    }
-
-    .price-table tbody tr:hover {
-        background: var(--tcsk-yellow-tint);
-    }
-
-    .price-unknown {
-        color: var(--tcsk-muted);
-        font-style: italic;
-    }
-
-    .spot-card .card-body {
-        padding: 1.5rem;
-    }
-
-    .spot-card h3 {
-        font-size: 1.35rem;
-        margin-top: .5rem;
-    }
-
-    .spot-card .photo {
-        border-bottom: 2px solid var(--tcsk-dark);
-    }
-
-    .spot-card .facts {
-        font-size: .93rem;
-        padding-left: 0;
-        list-style: none;
-    }
-
-    .spot-card .facts li {
-        margin-bottom: .35rem;
-    }
-
-    .spot-card .facts strong {
-        color: var(--tcsk-dark);
-    }
-
-
-    .tcsk-footer {
-        background: var(--tcsk-dark);
-        color: #dee2e6;
-        padding: 3.5rem 0 1.5rem;
-    }
-
-    .tcsk-footer h2 {
-        font-size: 1.05rem;
-        color: #fff;
-        margin-bottom: 1rem;
-    }
-
-    .tcsk-footer .footer-brand {
-        color: var(--tcsk-teal);
-        font-size: 1.4rem;
-        font-family: "Poppins", sans-serif;
-        font-weight: 700;
-    }
-
-    .tcsk-footer a {
-        color: #dee2e6;
-        text-decoration: none;
-        transition: color .2s ease;
-    }
-
-    .tcsk-footer a.btn {
-        color: var(--tcsk-dark);
-    }
-
-    .tcsk-footer a.btn:hover {
-        color: #fff;
-        text-decoration: none;
-    }
-
-    .tcsk-footer a:hover {
-        color: var(--tcsk-teal);
-        text-decoration: underline;
-    }
-
-    .tcsk-footer ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .tcsk-footer li {
-        margin-bottom: .5rem;
-    }
-
-    .tcsk-footer .copyright {
-        border-top: 1px solid #495057;
-        margin-top: 2rem;
-        padding-top: 1.25rem;
-        font-size: .88rem;
-        color: #adb5bd;
-    }
-
-
-    .photo {
-        display: block;
-        width: 100%;
-        height: auto;
-        aspect-ratio: 3 / 2;
-        object-fit: cover;
-        background: #d9d9d9;
-    }
-
-    /* 12. RESPONSIVE --------------------------------------- */
-    @media (max-width: 991.98px) {
-        .tcsk-nav .nav-link {
-            margin: .15rem 0;
-        }
-
-        section {
-            padding: 3rem 0;
-        }
-
-        .hero {
-            padding: 3.5rem 0;
-        }
-    }
-
-    @media (max-width: 575.98px) {
-        .hero .btn {
-            width: 100%;
-        }
-
-        .quick-table {
-            font-size: .85rem;
-        }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-        html {
-            scroll-behavior: auto;
-        }
-
-        * {
-            transition: none !important;
-        }
-
-        .card-tcsk:hover,
-        .spot-btn:hover,
-        .tcsk-nav .nav-link:hover {
-            transform: none;
-        }
-    }
 }
 
+.page-header .eyebrow {
+    display: block;
+    font-weight: 700;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    margin-bottom: .75rem;
+}
+
+.page-header .page-title {
+    font-size: clamp(1.9rem, 4vw, 3rem);
+}
+
+.page-header p.lead {
+    max-width: 42rem;
+}
+
+.header-teal {
+    background: var(--tcsk-teal);
+    color: var(--tcsk-dark);
+}
+
+.header-teal .eyebrow {
+    color: var(--tcsk-dark);
+}
+
+.header-light {
+    background: var(--tcsk-light);
+}
+
+.header-light .eyebrow {
+    color: var(--tcsk-blue);
+}
+
+.band-teal {
+    background: var(--tcsk-teal);
+    color: var(--tcsk-dark);
+}
+
+.band-teal .why-card {
+    background: #fff;
+    border-radius: var(--tcsk-radius);
+    padding: 1.75rem;
+    height: 100%;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.band-teal .why-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--tcsk-shadow);
+}
+
+.why-card .why-icon {
+    font-size: 1.8rem;
+}
+
+.band-blue {
+    background: var(--tcsk-blue);
+    color: #fff;
+}
+
+.subscribe-card {
+    background: #fff;
+    color: var(--tcsk-dark);
+    border-radius: var(--tcsk-radius);
+    padding: 2rem;
+}
+
+.step-num {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--tcsk-blue);
+    color: #fff;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: .6rem;
+}
+
+.note-box {
+    border-left: 6px solid var(--tcsk-yellow);
+    background: var(--tcsk-yellow-tint);
+    border-radius: 0 12px 12px 0;
+    padding: 1rem 1.25rem;
+}
+
+.note-box.teal {
+    border-color: var(--tcsk-teal);
+    background: var(--tcsk-teal-tint);
+}
+
+.note-box.blue {
+    border-color: var(--tcsk-blue);
+    background: var(--tcsk-blue-tint);
+}
+
+/* 8. SPOT PANELS (Around Campus) ----------------------- */
+.spot-feature {
+    border: 2px solid var(--tcsk-dark);
+    border-radius: var(--tcsk-radius);
+    overflow: hidden;
+    background: #fff;
+}
+
+.spot-feature .photo {
+    border-bottom: 2px solid var(--tcsk-dark);
+}
+
+.spot-feature .spot-body {
+    padding: 1.75rem;
+}
+
+.spot-feature h3 {
+    font-size: 1.6rem;
+}
+
+.spot-feature dl {
+    margin: 1rem 0 0;
+}
+
+.spot-feature dt {
+    font-weight: 700;
+    margin-top: .9rem;
+}
+
+.spot-feature dd {
+    margin: 0;
+    color: #343a40;
+}
+
+.spot-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.spot-sticky {
+    position: sticky;
+    top: 1rem;
+}
+
+.spot-btn {
+    text-decoration: none;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    text-align: left;
+    width: 100%;
+    border: 2px solid var(--tcsk-dark);
+    border-top-width: 8px;
+    border-radius: 14px;
+    background: #fff;
+    padding: .9rem;
+    color: var(--tcsk-dark);
+    transition: transform .2s ease, background-color .2s ease, box-shadow .2s ease;
+}
+
+.spot-btn:nth-child(4n+1),
+.spot-btn:nth-child(4n+4) {
+    border-top-color: var(--tcsk-blue);
+}
+
+.spot-btn:nth-child(4n+2) {
+    border-top-color: var(--tcsk-yellow);
+}
+
+.spot-btn:nth-child(4n+3) {
+    border-top-color: var(--tcsk-teal);
+}
+
+.spot-btn:hover {
+    transform: translateX(6px);
+    background: var(--tcsk-blue-tint);
+    color: var(--tcsk-dark);
+}
+
+.spot-btn:nth-child(4n+2):hover {
+    background: var(--tcsk-yellow-tint);
+}
+
+.spot-btn:nth-child(4n+3):hover {
+    background: var(--tcsk-teal-tint);
+}
+
+.spot-btn .thumb {
+    width: 64px;
+    height: 64px;
+    flex: none;
+    border-radius: 12px;
+    border: 2px solid var(--tcsk-dark);
+    background: #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+}
+
+.spot-btn strong {
+    display: block;
+    font-family: "Poppins", sans-serif;
+}
+
+.spot-btn small {
+    color: var(--tcsk-muted);
+}
+
+.quick-table th {
+    background: var(--tcsk-dark);
+    color: #fff;
+    white-space: nowrap;
+}
+
+.quick-table td,
+.quick-table th {
+    vertical-align: middle;
+}
+
+.quick-table tbody tr {
+    transition: background-color .15s ease;
+}
+
+.quick-table tbody tr:hover {
+    background: var(--tcsk-blue-tint);
+}
+
+/* 9. BUDGET SECTION ------------------------------------ */
+.panel {
+    border: 2px solid var(--tcsk-dark);
+    border-radius: var(--tcsk-radius);
+    background: #fff;
+    padding: 1.5rem;
+}
+
+.panel.top-blue {
+    border-top: 8px solid var(--tcsk-blue);
+}
+
+.panel.top-yellow {
+    border-top: 8px solid var(--tcsk-yellow);
+}
+
+.panel.top-teal {
+    border-top: 8px solid var(--tcsk-teal);
+}
+
+.panel ul {
+    padding-left: 1.2rem;
+}
+
+.panel li {
+    margin-bottom: .5rem;
+}
+
+.calc-result {
+    background: var(--tcsk-teal-tint);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+}
+
+.split-row {
+    display: flex;
+    justify-content: space-between;
+    padding: .45rem 0;
+    border-bottom: 1px dashed #adb5bd;
+}
+
+.split-row:last-of-type {
+    border-bottom: 0;
+}
+
+.price-table {
+    font-size: .93rem;
+    margin-bottom: .5rem;
+}
+
+.price-table th {
+    background: var(--tcsk-light);
+}
+
+.price-table td:last-child,
+.price-table th:last-child {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.price-table tbody tr:hover {
+    background: var(--tcsk-yellow-tint);
+}
+
+.price-unknown {
+    color: var(--tcsk-muted);
+    font-style: italic;
+}
+
+.spot-card .card-body {
+    padding: 1.5rem;
+}
+
+.spot-card h3 {
+    font-size: 1.35rem;
+    margin-top: .5rem;
+}
+
+.spot-card .photo {
+    border-bottom: 2px solid var(--tcsk-dark);
+}
+
+.spot-card .facts {
+    font-size: .93rem;
+    padding-left: 0;
+    list-style: none;
+}
+
+.spot-card .facts li {
+    margin-bottom: .35rem;
+}
+
+.spot-card .facts strong {
+    color: var(--tcsk-dark);
+}
+
+/* 10. FOOTER ------------------------------------------- */
+.tcsk-footer {
+    background: var(--tcsk-dark);
+    color: #dee2e6;
+    padding: 3.5rem 0 1.5rem;
+}
+
+.tcsk-footer h2 {
+    font-size: 1.05rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.tcsk-footer .footer-brand {
+    color: var(--tcsk-teal);
+    font-size: 1.4rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+}
+
+.tcsk-footer a {
+    color: #dee2e6;
+    text-decoration: none;
+    transition: color .2s ease;
+}
+
+.tcsk-footer a.btn {
+    color: var(--tcsk-dark);
+}
+
+.tcsk-footer a.btn:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.tcsk-footer a:hover {
+    color: var(--tcsk-teal);
+    text-decoration: underline;
+}
+
+.tcsk-footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tcsk-footer li {
+    margin-bottom: .5rem;
+}
+
+.tcsk-footer .copyright {
+    border-top: 1px solid #495057;
+    margin-top: 2rem;
+    padding-top: 1.25rem;
+    font-size: .88rem;
+    color: #adb5bd;
+}
+
+/* 11. PHOTOS: FIXED SIZES ------------------------------ */
+/* Every photo gets the same height inside its card or panel.
+   Extra parts of the picture are cropped (object-fit: cover). */
 .photo,
 .hero-img {
     display: block;
     width: 100%;
     max-width: 100%;
     object-fit: cover;
-    /* crop to fill, never stretch */
     object-position: center;
-    /* which part of the photo stays visible */
     background: #d9d9d9;
 }
 
-/* Home: hero photo */
 .hero-img {
     height: 420px;
 }
 
-/* Home: Featured Tips cards */
 .tip-card .photo {
     height: 200px;
 }
 
-/* Around Campus: big spot panels */
 .spot-feature .photo {
     height: 340px;
 }
 
-/* Budget & Food: food spot cards */
 .spot-card .photo {
     height: 240px;
 }
 
-/* Smaller screens: shorter photos so they don't take over the page */
+/* 12. RESPONSIVE --------------------------------------- */
 @media (max-width: 991.98px) {
+    .tcsk-nav .nav-link {
+        margin: .15rem 0;
+    }
+
+    section {
+        padding: 3rem 0;
+    }
+
+    .hero {
+        padding: 3.5rem 0;
+    }
+
     .hero-img {
         height: 320px;
     }
@@ -1006,6 +954,14 @@ section {
 }
 
 @media (max-width: 575.98px) {
+    .hero .btn {
+        width: 100%;
+    }
+
+    .quick-table {
+        font-size: .85rem;
+    }
+
     .hero-img {
         height: 240px;
     }
@@ -1020,5 +976,21 @@ section {
 
     .spot-card .photo {
         height: 200px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    * {
+        transition: none !important;
+    }
+
+    .card-tcsk:hover,
+    .spot-btn:hover,
+    .tcsk-nav .nav-link:hover {
+        transform: none;
     }
 }
