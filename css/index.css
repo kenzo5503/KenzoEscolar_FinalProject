@@ -1,22 +1,3 @@
-/* =========================================================
-   The College Survival Kit (TCSK) - main stylesheet
-   Loaded AFTER Bootstrap so these rules can override it.
-   Sections:
-   1. Design tokens (palette, fonts)
-   2. Base
-   3. Navbar (+ hover colors, mobile menu, FAQ)
-   4. Buttons, badges, tags
-   5. Hero
-   6. Cards (category, tip, tool, spot)
-   7. Page headers and bands
-   8. Spot panels (Around Campus)
-   9. Budget section
-   10. Footer
-   11. Photos
-   12. Responsive tweaks
-   ========================================================= */
-
-/* 1. DESIGN TOKENS ------------------------------------- */
 :root {
     --tcsk-blue: #3b5bdb;
     --tcsk-blue-dark: #2f49b0;
@@ -26,7 +7,6 @@
     --tcsk-yellow-tint: #fff0c2;
     --tcsk-teal: #2ec4b6;
     --tcsk-teal-dark: #0b7a6f;
-    /* teal for TEXT on white (passes contrast) */
     --tcsk-teal-tint: #d3f4f0;
     --tcsk-dark: #212529;
     --tcsk-light: #f8f9fa;
@@ -38,7 +18,6 @@
 }
 
 /* 2. BASE ---------------------------------------------- */
-/* Smooth scrolling when you click a menu item (one-page site, no JavaScript) */
 html {
     scroll-behavior: smooth;
 }
@@ -86,7 +65,7 @@ section {
     outline-offset: 2px;
 }
 
-/* short blue underline under section headings (from the hi-fi design) */
+
 .heading-bar {
     display: inline-block;
 }
@@ -101,7 +80,7 @@ section {
     margin-top: 0.5rem;
 }
 
-/* skip link for keyboard users */
+
 .skip-link {
     position: absolute;
     left: -999px;
@@ -117,7 +96,7 @@ section {
     left: 0;
 }
 
-/* 3. NAVBAR -------------------------------------------- */
+
 .tcsk-nav {
     background: #fff;
     border-bottom: 3px solid var(--tcsk-dark);
@@ -143,7 +122,7 @@ section {
     transition: background-color .2s ease, color .2s ease, transform .2s ease;
 }
 
-/* every menu item gets its own hover color, matching its category color */
+
 .tcsk-nav .nav-link:hover,
 .tcsk-nav .nav-link:focus-visible {
     transform: translateY(-2px);
