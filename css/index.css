@@ -226,7 +226,12 @@ section {
 @media (min-width: 992px) {
     .menu-panel {
         display: flex;
+        flex-basis: auto;
         flex-grow: 1;
+    }
+
+    .tcsk-nav .navbar-nav {
+        flex-direction: row;
     }
 }
 
