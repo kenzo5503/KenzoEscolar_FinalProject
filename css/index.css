@@ -911,9 +911,7 @@ section {
     color: #adb5bd;
 }
 
-/* 11. PHOTOS ------------------------------------------- */
-/* Every photo uses class="photo". The grey background shows while an image is missing. */
-.photo {
+/PHOTOSTYLE/ .photo {
     display: block;
     width: 100%;
     height: auto;
