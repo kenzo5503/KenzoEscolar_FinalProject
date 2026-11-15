@@ -961,3 +961,64 @@ section {
         }
     }
 }
+
+.photo,
+.hero-img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    /* crop to fill, never stretch */
+    object-position: center;
+    /* which part of the photo stays visible */
+    background: #d9d9d9;
+}
+
+/* Home: hero photo */
+.hero-img {
+    height: 420px;
+}
+
+/* Home: Featured Tips cards */
+.tip-card .photo {
+    height: 200px;
+}
+
+/* Around Campus: big spot panels */
+.spot-feature .photo {
+    height: 340px;
+}
+
+/* Budget & Food: food spot cards */
+.spot-card .photo {
+    height: 240px;
+}
+
+/* Smaller screens: shorter photos so they don't take over the page */
+@media (max-width: 991.98px) {
+    .hero-img {
+        height: 320px;
+    }
+
+    .spot-feature .photo {
+        height: 280px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero-img {
+        height: 240px;
+    }
+
+    .tip-card .photo {
+        height: 180px;
+    }
+
+    .spot-feature .photo {
+        height: 220px;
+    }
+
+    .spot-card .photo {
+        height: 200px;
+    }
+}
