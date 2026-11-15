@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="css/index.css">
 
 <head>
     <meta charset="UTF-8">
@@ -9,20 +7,30 @@
     <title>The College Survival Kit | FEU Alabang Student Resources</title>
     <meta name="description"
         content="A free resource site for FEU Alabang students: websites, campus spots, budget meals and study help.">
+
+    <!-- Google Fonts: Poppins (headings) + Inter (body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap"
         rel="stylesheet">
+
+    <!-- Bootstrap 5 (CSS only) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Our styles (must come AFTER Bootstrap) -->
     <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
     <a class="skip-link" href="#main">Skip to main content</a>
+
+    <!-- ========== NAVBAR ========== -->
     <header>
         <nav class="navbar tcsk-nav" aria-label="Main navigation">
             <div class="container">
                 <a class="navbar-brand" href="#home">TCSK</a>
+                <!-- Mobile menu button: a checkbox + label, so no JavaScript is needed -->
                 <input type="checkbox" id="menu-toggle" class="menu-toggle">
                 <label for="menu-toggle" class="menu-button" aria-label="Open or close the menu">&#9776;</label>
                 <div class="navbar-collapse menu-panel">
@@ -36,7 +44,10 @@
             </div>
         </nav>
     </header>
+
     <main id="main">
+
+        <!-- ################ HOME ################ -->
         <div id="home">
 
             <!-- Hero -->
@@ -56,13 +67,14 @@
                             <a href="#budget" class="find-link">Find Food Spots &rarr;</a>
                         </div>
                         <div class="col-12 col-lg-6">
-
+                            <!-- IMAGE: save your photo as images/hero-students.jpg -->
                             <img src="images/hero-students.jpg" class="hero-img img-fluid" width="800" height="533"
                                 alt="A group of students studying together at a table, smiling and sharing notes">
                         </div>
                     </div>
                 </div>
             </section>
+
             <!-- What do you need today? -->
             <section aria-labelledby="cat-title">
                 <div class="container">
@@ -96,6 +108,7 @@
                     </div>
                 </div>
             </section>
+
             <!-- Featured tips -->
             <section class="bg-soft" aria-labelledby="tips-title">
                 <div class="container">
@@ -149,6 +162,7 @@
                     </div>
                 </div>
             </section>
+
             <!-- Why TCSK -->
             <section class="band-teal" aria-labelledby="why-title">
                 <div class="container">
@@ -194,6 +208,7 @@
                     </div>
                 </div>
             </section>
+
         </div>
 
         <!-- ################ STUDENT TOOLKIT ################ -->
@@ -237,6 +252,7 @@
                                 </div>
                             </article>
                         </div>
+
                         <div class="col-12 col-md-6">
                             <article class="card-tcsk tool-card">
                                 <div class="card-body d-flex flex-column">
@@ -261,6 +277,7 @@
                                 </div>
                             </article>
                         </div>
+
                         <div class="col-12 col-md-6">
                             <article class="card-tcsk tool-card">
                                 <div class="card-body d-flex flex-column">
@@ -287,6 +304,7 @@
                                 </div>
                             </article>
                         </div>
+
                         <div class="col-12 col-md-6">
                             <article class="card-tcsk tool-card">
                                 <div class="card-body d-flex flex-column">
@@ -313,6 +331,7 @@
                                 </div>
                             </article>
                         </div>
+
                     </div>
                 </div>
             </section>
@@ -357,16 +376,19 @@
                     </div>
                 </div>
             </section>
+
             <section class="band-blue text-center" aria-labelledby="suggest-title">
                 <div class="container">
                     <h2 id="suggest-title">Know a tool that saved your semester?</h2>
                     <p class="mb-4">Tell us and we'll add it to the toolkit.</p>
-                    <a href="mailto:kmescolar@feualabang.edu.ph.com?subject=Tool%20suggestion%20for%20TCSK"
+                    <!-- TODO: swap the mailto for your own email -->
+                    <a href="mailto:yourname@example.com?subject=Tool%20suggestion%20for%20TCSK"
                         class="btn btn-tcsk-yellow btn-lg">Suggest a Tool</a>
                 </div>
             </section>
 
         </div>
+
         <!-- ################ AROUND CAMPUS ################ -->
         <div id="campus">
 
@@ -414,7 +436,9 @@
                                         target="_blank" rel="noopener noreferrer">Get Directions</a>
                                 </div>
                             </article>
+
                             <article class="spot-feature mb-4" id="spot-central">
+                                <!-- IMAGE: save your photo as images/central-park.jpg -->
                                 <img src="images/central-park.jpg" class="photo"
                                     alt="Open lawn and walking path at Central Park in Filinvest City" loading="lazy">
                                 <div class="spot-body">
@@ -443,7 +467,9 @@
                                         target="_blank" rel="noopener noreferrer">Get Directions</a>
                                 </div>
                             </article>
+
                             <article class="spot-feature mb-4" id="spot-library">
+                                <!-- IMAGE: save your photo as images/library.jpg -->
                                 <img src="images/library.jpg" class="photo"
                                     alt="Large library study hall with rows of tables, chairs and bookshelves"
                                     loading="lazy">
@@ -474,6 +500,7 @@
                             </article>
 
                             <article class="spot-feature mb-4" id="spot-creek">
+                                <!-- IMAGE: save your photo as images/creekside.jpg -->
                                 <img src="images/creekside.jpg" class="photo"
                                     alt="Covered walkway with a railing beside a green creek, under a bridge"
                                     loading="lazy">
@@ -502,6 +529,7 @@
                             </article>
 
                         </div>
+
                         <div class="col-12 col-lg-5">
                             <p class="fw-semibold mb-2">Jump to a spot</p>
                             <div class="spot-list spot-sticky">
@@ -531,6 +559,7 @@
                     </div>
                 </div>
             </section>
+
             <section class="bg-soft" aria-labelledby="quick-title">
                 <div class="container">
                     <h2 id="quick-title" class="heading-bar mb-4">Quick answers</h2>
@@ -592,6 +621,7 @@
                     </div>
                 </div>
             </section>
+
             <section class="band-teal text-center" aria-labelledby="campus-cta">
                 <div class="container">
                     <h2 id="campus-cta">Hungry after all that walking?</h2>
@@ -618,6 +648,7 @@
                         or Google Sheets.</p>
                 </div>
             </section>
+
             <section aria-labelledby="meal-title">
                 <div class="container">
                     <div class="row g-4">
@@ -669,6 +700,7 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </section>
@@ -737,6 +769,7 @@
                                 </div>
                             </article>
                         </div>
+
                         <div class="col-12 col-lg-6">
                             <article class="card-tcsk spot-card">
                                 <!-- IMAGE: save your photo as images/seven-eleven.jpg -->
@@ -837,6 +870,7 @@
                                 </div>
                             </article>
                         </div>
+
                         <div class="col-12 col-lg-6">
                             <article class="card-tcsk spot-card">
                                 <!-- IMAGE: save your photo as images/merrymart.jpg -->
@@ -916,12 +950,12 @@
                     <h2>Contact</h2>
                     <ul>
                         <!-- TODO: replace with your own email address -->
-                        <li><a href="kmescolar@feualabang.edu.ph">kenzoescolar@gmail.com</a></li>
+                        <li><a href="mailto:yourname@example.com">yourname@example.com</a></li>
                         <li>FEU Alabang, Filinvest City, Muntinlupa</li>
                     </ul>
                     <h2 class="mt-3">Follow Us</h2>
                     <ul>
-
+                        <!-- TODO: replace # with your real social links -->
                         <li><a href="#">Facebook</a></li>
                         <li><a href="#">Instagram</a></li>
                     </ul>
@@ -929,7 +963,7 @@
                 <div class="col-12 col-md-6 col-lg-3">
                     <h2>Stay Updated</h2>
                     <p>Follow us for new tips, spots and tools.</p>
-
+                    <!-- TODO: replace # with your real social links -->
                     <a class="btn btn-tcsk-yellow" href="#">Follow Us</a>
                 </div>
             </div>
