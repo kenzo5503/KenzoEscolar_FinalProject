@@ -679,3 +679,141 @@
                 padding: .9rem;
                 color: var(--tcsk-dark);
                 transition: transform .2s ease, background-color .2s ease, box-shadow .2s ease;
+            }
+
+            .spot-btn:nth-child(4n+1),
+            .spot-btn:nth-child(4n+4) {
+                border-top-color: var(--tcsk-blue);
+            }
+
+            .spot-btn:nth-child(4n+2) {
+                border-top-color: var(--tcsk-yellow);
+            }
+
+            .spot-btn:nth-child(4n+3) {
+                border-top-color: var(--tcsk-teal);
+            }
+
+            .spot-btn:hover {
+                transform: translateX(6px);
+                background: var(--tcsk-blue-tint);
+                color: var(--tcsk-dark);
+            }
+
+            .spot-btn:nth-child(4n+2):hover {
+                background: var(--tcsk-yellow-tint);
+            }
+
+            .spot-btn:nth-child(4n+3):hover {
+                background: var(--tcsk-teal-tint);
+            }
+
+            .spot-btn .thumb {
+                width: 64px;
+                height: 64px;
+                flex: none;
+                border-radius: 12px;
+                border: 2px solid var(--tcsk-dark);
+                background: #e9ecef;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.6rem;
+            }
+
+            .spot-btn strong {
+                display: block;
+                font-family: "Poppins", sans-serif;
+            }
+
+            .spot-btn small {
+                color: var(--tcsk-muted);
+            }
+
+            .quick-table th {
+                background: var(--tcsk-dark);
+                color: #fff;
+                white-space: nowrap;
+            }
+
+            .quick-table td,
+            .quick-table th {
+                vertical-align: middle;
+            }
+
+            .quick-table tbody tr {
+                transition: background-color .15s ease;
+            }
+
+            .quick-table tbody tr:hover {
+                background: var(--tcsk-blue-tint);
+            }
+
+            /* 9. BUDGET SECTION ------------------------------------ */
+            .panel {
+                border: 2px solid var(--tcsk-dark);
+                border-radius: var(--tcsk-radius);
+                background: #fff;
+                padding: 1.5rem;
+            }
+
+            .panel.top-blue {
+                border-top: 8px solid var(--tcsk-blue);
+            }
+
+            .panel.top-yellow {
+                border-top: 8px solid var(--tcsk-yellow);
+            }
+
+            .panel.top-teal {
+                border-top: 8px solid var(--tcsk-teal);
+            }
+
+            .panel ul {
+                padding-left: 1.2rem;
+            }
+
+            .panel li {
+                margin-bottom: .5rem;
+            }
+
+            .calc-result {
+                background: var(--tcsk-teal-tint);
+                border-radius: 12px;
+                padding: 1rem 1.25rem;
+            }
+
+            .split-row {
+                display: flex;
+                justify-content: space-between;
+                padding: .45rem 0;
+                border-bottom: 1px dashed #adb5bd;
+            }
+
+            .split-row:last-of-type {
+                border-bottom: 0;
+            }
+
+            .price-table {
+                font-size: .93rem;
+                margin-bottom: .5rem;
+            }
+
+            .price-table th {
+                background: var(--tcsk-light);
+            }
+
+            .price-table td:last-child,
+            .price-table th:last-child {
+                text-align: right;
+                white-space: nowrap;
+            }
+
+            .price-table tbody tr:hover {
+                background: var(--tcsk-yellow-tint);
+            }
+
+            .price-unknown {
+                color: var(--tcsk-muted);
+                font-style: italic;
+            }
