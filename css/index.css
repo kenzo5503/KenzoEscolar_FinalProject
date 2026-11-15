@@ -214,7 +214,7 @@ section {
     }
 }
 
-/* FAQ without JavaScript: <details> opens and closes by itself */
+
 .faq details {
     border-bottom: 1px solid #ced4da;
     padding: .75rem 0;
