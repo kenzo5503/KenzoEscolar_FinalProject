@@ -817,3 +817,99 @@
                 color: var(--tcsk-muted);
                 font-style: italic;
             }
+
+            .spot-card .card-body {
+                padding: 1.5rem;
+            }
+
+            .spot-card h3 {
+                font-size: 1.35rem;
+                margin-top: .5rem;
+            }
+
+            .spot-card .photo {
+                border-bottom: 2px solid var(--tcsk-dark);
+            }
+
+            .spot-card .facts {
+                font-size: .93rem;
+                padding-left: 0;
+                list-style: none;
+            }
+
+            .spot-card .facts li {
+                margin-bottom: .35rem;
+            }
+
+            .spot-card .facts strong {
+                color: var(--tcsk-dark);
+            }
+
+            /* 10. FOOTER ------------------------------------------- */
+            .tcsk-footer {
+                background: var(--tcsk-dark);
+                color: #dee2e6;
+                padding: 3.5rem 0 1.5rem;
+            }
+
+            .tcsk-footer h2 {
+                font-size: 1.05rem;
+                color: #fff;
+                margin-bottom: 1rem;
+            }
+
+            .tcsk-footer .footer-brand {
+                color: var(--tcsk-teal);
+                font-size: 1.4rem;
+                font-family: "Poppins", sans-serif;
+                font-weight: 700;
+            }
+
+            .tcsk-footer a {
+                color: #dee2e6;
+                text-decoration: none;
+                transition: color .2s ease;
+            }
+
+            .tcsk-footer a.btn {
+                color: var(--tcsk-dark);
+            }
+
+            .tcsk-footer a.btn:hover {
+                color: #fff;
+                text-decoration: none;
+            }
+
+            .tcsk-footer a:hover {
+                color: var(--tcsk-teal);
+                text-decoration: underline;
+            }
+
+            .tcsk-footer ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .tcsk-footer li {
+                margin-bottom: .5rem;
+            }
+
+            .tcsk-footer .copyright {
+                border-top: 1px solid #495057;
+                margin-top: 2rem;
+                padding-top: 1.25rem;
+                font-size: .88rem;
+                color: #adb5bd;
+            }
+
+            /* 11. PHOTOS ------------------------------------------- */
+            /* Every photo uses class="photo". The grey background shows while an image is missing. */
+            .photo {
+                display: block;
+                width: 100%;
+                height: auto;
+                aspect-ratio: 3 / 2;
+                object-fit: cover;
+                background: #d9d9d9;
+            }
