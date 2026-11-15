@@ -1,3 +1,22 @@
+/* =========================================================
+   The College Survival Kit (TCSK) - main stylesheet
+   Loaded AFTER Bootstrap so these rules can override it.
+   Sections:
+   1. Design tokens (palette, fonts)
+   2. Base
+   3. Navbar (+ hover colors, mobile menu, FAQ)
+   4. Buttons, badges, tags
+   5. Hero
+   6. Cards (category, tip, tool, spot)
+   7. Page headers and bands
+   8. Spot panels (Around Campus)
+   9. Budget section
+   10. Footer
+   11. Photos
+   12. Responsive tweaks
+   ========================================================= */
+
+/* 1. DESIGN TOKENS ------------------------------------- */
 :root {
     --tcsk-blue: #3b5bdb;
     --tcsk-blue-dark: #2f49b0;
@@ -16,941 +35,946 @@
     --tcsk-shadow: 0 6px 18px rgba(33, 37, 41, 0.08);
     --bs-link-color: var(--tcsk-blue);
     --bs-link-hover-color: var(--tcsk-blue-dark);
+}
 
-    html {
-        scroll-behavior: smooth;
+/* 2. BASE ---------------------------------------------- */
+/* Smooth scrolling when you click a menu item (one-page site, no JavaScript) */
+html {
+    scroll-behavior: smooth;
+}
+
+#home,
+#toolkit,
+#campus,
+#budget,
+.spot-feature {
+    scroll-margin-top: 70px;
+}
+
+body {
+    font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+    color: var(--tcsk-dark);
+    background: #fff;
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.navbar-brand {
+    font-family: "Poppins", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+section {
+    padding: 4rem 0;
+}
+
+.bg-soft {
+    background: var(--tcsk-light);
+}
+
+.text-muted-tcsk {
+    color: var(--tcsk-muted);
+}
+
+:focus-visible {
+    outline: 3px solid var(--tcsk-yellow);
+    outline-offset: 2px;
+}
+
+/* short blue underline under section headings (from the hi-fi design) */
+.heading-bar {
+    display: inline-block;
+}
+
+.heading-bar::after {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 6px;
+    border-radius: 6px;
+    background: var(--tcsk-blue);
+    margin-top: 0.5rem;
+}
+
+/* skip link for keyboard users */
+.skip-link {
+    position: absolute;
+    left: -999px;
+    top: 0;
+    background: var(--tcsk-yellow);
+    color: var(--tcsk-dark);
+    padding: .5rem 1rem;
+    z-index: 2000;
+    font-weight: 600;
+}
+
+.skip-link:focus {
+    left: 0;
+}
+
+/* 3. NAVBAR -------------------------------------------- */
+.tcsk-nav {
+    background: #fff;
+    border-bottom: 3px solid var(--tcsk-dark);
+    padding: .6rem 0;
+}
+
+.tcsk-nav .navbar-brand {
+    color: var(--tcsk-blue);
+    font-size: 1.5rem;
+    transition: color .2s ease;
+}
+
+.tcsk-nav .navbar-brand:hover {
+    color: var(--tcsk-teal-dark);
+}
+
+.tcsk-nav .nav-link {
+    color: var(--tcsk-dark);
+    font-weight: 600;
+    border-radius: 999px;
+    padding: .5rem 1rem;
+    margin-left: .25rem;
+    transition: background-color .2s ease, color .2s ease, transform .2s ease;
+}
+
+/* every menu item gets its own hover color, matching its category color */
+.tcsk-nav .nav-link:hover,
+.tcsk-nav .nav-link:focus-visible {
+    transform: translateY(-2px);
+}
+
+.tcsk-nav .nav-link.hover-blue:hover,
+.tcsk-nav .nav-link.hover-blue:focus-visible {
+    background: var(--tcsk-blue);
+    color: #fff;
+}
+
+.tcsk-nav .nav-link.hover-yellow:hover,
+.tcsk-nav .nav-link.hover-yellow:focus-visible {
+    background: var(--tcsk-yellow);
+    color: var(--tcsk-dark);
+}
+
+.tcsk-nav .nav-link.hover-teal:hover,
+.tcsk-nav .nav-link.hover-teal:focus-visible {
+    background: var(--tcsk-teal);
+    color: var(--tcsk-dark);
+}
+
+.tcsk-nav .nav-link.hover-dark:hover,
+.tcsk-nav .nav-link.hover-dark:focus-visible {
+    background: var(--tcsk-dark);
+    color: #fff;
+}
+
+/* Mobile menu without JavaScript: a hidden checkbox controls the panel */
+.menu-toggle {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.menu-button {
+    display: none;
+    font-size: 1.6rem;
+    line-height: 1;
+    border: 2px solid var(--tcsk-dark);
+    border-radius: 10px;
+    padding: .2rem .65rem;
+    cursor: pointer;
+    background: #fff;
+}
+
+.menu-button:hover {
+    background: var(--tcsk-yellow);
+}
+
+.menu-toggle:focus-visible+.menu-button {
+    outline: 3px solid var(--tcsk-yellow);
+    outline-offset: 2px;
+}
+
+@media (max-width: 991.98px) {
+    .menu-button {
+        display: block;
     }
 
-    #home,
-    #toolkit,
-    #campus,
-    #budget,
-    .spot-feature {
-        scroll-margin-top: 70px;
+    .menu-panel {
+        display: none;
+        width: 100%;
     }
 
-    body {
-        font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
-        color: var(--tcsk-dark);
-        background: #fff;
-        line-height: 1.6;
+    .menu-toggle:checked~.menu-panel {
+        display: block;
+        margin-top: .75rem;
     }
+}
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    .navbar-brand {
-        font-family: "Poppins", "Helvetica Neue", Arial, sans-serif;
-        font-weight: 700;
-        letter-spacing: -0.01em;
+.tcsk-nav .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media (min-width: 992px) {
+    .menu-panel {
+        display: flex;
+        flex-grow: 1;
+    }
+}
+
+/* FAQ without JavaScript: <details> opens and closes by itself */
+.faq details {
+    border-bottom: 1px solid #ced4da;
+    padding: .75rem 0;
+}
+
+.faq summary {
+    cursor: pointer;
+    font-weight: 600;
+    list-style-position: inside;
+}
+
+.faq summary:hover {
+    color: var(--tcsk-blue);
+}
+
+.faq details[open] summary {
+    color: var(--tcsk-blue);
+}
+
+.faq details p {
+    margin: .6rem 0 0;
+    color: #343a40;
+}
+
+/* 4. BUTTONS, BADGES, TAGS ------------------------------ */
+.btn {
+    border-radius: 12px;
+    font-weight: 600;
+    padding: .7rem 1.4rem;
+    transition: all .2s ease;
+}
+
+.btn-tcsk-yellow {
+    background: var(--tcsk-yellow);
+    border: 2px solid var(--tcsk-yellow);
+    color: var(--tcsk-dark);
+}
+
+.btn-tcsk-yellow:hover {
+    background: var(--tcsk-dark);
+    border-color: var(--tcsk-dark);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.btn-tcsk-light {
+    background: #f4f6ff;
+    border: 2px solid #f4f6ff;
+    color: var(--tcsk-blue);
+}
+
+.btn-tcsk-light:hover {
+    background: var(--tcsk-teal);
+    border-color: var(--tcsk-teal);
+    color: var(--tcsk-dark);
+    transform: translateY(-2px);
+}
+
+.btn-tcsk-blue {
+    background: var(--tcsk-blue);
+    border: 2px solid var(--tcsk-blue);
+    color: #fff;
+}
+
+.btn-tcsk-blue:hover {
+    background: var(--tcsk-yellow);
+    border-color: var(--tcsk-yellow);
+    color: var(--tcsk-dark);
+    transform: translateY(-2px);
+}
+
+.badge-free {
+    display: inline-block;
+    background: var(--tcsk-yellow);
+    color: var(--tcsk-dark);
+    font-weight: 700;
+    font-size: .8rem;
+    border-radius: 999px;
+    padding: .4rem .9rem;
+}
+
+.tag {
+    display: inline-block;
+    font-size: .78rem;
+    font-weight: 600;
+    border-radius: 999px;
+    padding: .25rem .75rem;
+    color: var(--tcsk-dark);
+}
+
+.tag-blue {
+    background: var(--tcsk-blue-tint);
+}
+
+.tag-yellow {
+    background: var(--tcsk-yellow-tint);
+}
+
+.tag-teal {
+    background: var(--tcsk-teal-tint);
+}
+
+.arrow-link {
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--tcsk-blue);
+}
+
+.arrow-link span {
+    display: inline-block;
+    transition: transform .2s ease;
+}
+
+.arrow-link:hover span {
+    transform: translateX(5px);
+}
+
+.arrow-link:hover {
+    color: var(--tcsk-blue-dark);
+    text-decoration: underline;
+}
+
+/* 5. HERO ---------------------------------------------- */
+.hero {
+    background: var(--tcsk-blue);
+    color: #fff;
+    padding: 5rem 0;
+}
+
+.hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    line-height: 1.1;
+}
+
+.hero p.lead {
+    color: #e7ecff;
+    max-width: 34rem;
+}
+
+.hero .find-link {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.hero .find-link:hover {
+    color: var(--tcsk-yellow);
+    text-decoration: underline;
+}
+
+.hero-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border: 2px solid var(--tcsk-dark);
+    border-radius: 28px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+/* 6. CARDS --------------------------------------------- */
+.card-tcsk {
+    border: 2px solid var(--tcsk-dark);
+    border-radius: var(--tcsk-radius);
+    background: #fff;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+
+.card-tcsk:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--tcsk-shadow);
+}
+
+.card-tcsk.top-blue {
+    border-top: 8px solid var(--tcsk-blue);
+}
+
+.card-tcsk.top-yellow {
+    border-top: 8px solid var(--tcsk-yellow);
+}
+
+.card-tcsk.top-teal {
+    border-top: 8px solid var(--tcsk-teal);
+}
+
+/* category cards: whole card changes color on hover */
+.cat-card {
+    text-decoration: none;
+    color: var(--tcsk-dark);
+    display: block;
+    text-align: center;
+    padding: 2rem 1.25rem 1.5rem;
+}
+
+.cat-card .icon-circle {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    transition: transform .2s ease;
+}
+
+.cat-card:hover .icon-circle {
+    transform: scale(1.1);
+}
+
+.cat-card h3 {
+    font-size: 1.2rem;
+}
+
+.cat-card p {
+    color: var(--tcsk-muted);
+    font-size: .95rem;
+}
+
+.cat-card .explore {
+    color: var(--tcsk-blue);
+    font-weight: 600;
+}
+
+.cat-card.top-blue:hover {
+    background: var(--tcsk-blue-tint);
+}
+
+.cat-card.top-yellow:hover {
+    background: var(--tcsk-yellow-tint);
+}
+
+.cat-card.top-teal:hover {
+    background: var(--tcsk-teal-tint);
+}
+
+.cat-card:hover .explore {
+    text-decoration: underline;
+}
+
+.ic-blue {
+    background: var(--tcsk-blue-tint);
+}
+
+.ic-yellow {
+    background: var(--tcsk-yellow-tint);
+}
+
+.ic-teal {
+    background: var(--tcsk-teal-tint);
+}
+
+/* tip + tool cards */
+.tip-card .photo {
+    border-bottom: 2px solid var(--tcsk-dark);
+}
+
+.tip-card .card-body,
+.tool-card .card-body {
+    padding: 1.4rem;
+}
+
+.tip-card h3 {
+    font-size: 1.2rem;
+    margin: .6rem 0 .4rem;
+}
+
+.tool-card .meta {
+    font-size: .92rem;
+    margin-bottom: .5rem;
+}
+
+.tool-card .meta strong {
+    color: var(--tcsk-dark);
+}
+
+.tool-card .btn-visit {
+    width: 100%;
+    background: var(--tcsk-teal-tint);
+    border: 2px solid var(--tcsk-teal-tint);
+    color: var(--tcsk-dark);
+}
+
+.tool-card .btn-visit:hover {
+    background: var(--tcsk-teal);
+    border-color: var(--tcsk-teal);
+}
+
+.tool-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: .75rem;
+}
+
+.tip-line {
+    background: var(--tcsk-yellow-tint);
+    border-radius: 10px;
+    padding: .5rem .75rem;
+    font-size: .9rem;
+}
+
+/* 7. SECTION HEADERS AND BANDS ------------------------- */
+.page-header {
+    padding: 4rem 0 3rem;
+}
+
+.page-header .eyebrow {
+    display: block;
+    font-weight: 700;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    margin-bottom: .75rem;
+}
+
+.page-header .page-title {
+    font-size: clamp(1.9rem, 4vw, 3rem);
+}
+
+.page-header p.lead {
+    max-width: 42rem;
+}
+
+.header-teal {
+    background: var(--tcsk-teal);
+    color: var(--tcsk-dark);
+}
+
+.header-teal .eyebrow {
+    color: var(--tcsk-dark);
+}
+
+.header-light {
+    background: var(--tcsk-light);
+}
+
+.header-light .eyebrow {
+    color: var(--tcsk-blue);
+}
+
+.band-teal {
+    background: var(--tcsk-teal);
+    color: var(--tcsk-dark);
+}
+
+.band-teal .why-card {
+    background: #fff;
+    border-radius: var(--tcsk-radius);
+    padding: 1.75rem;
+    height: 100%;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.band-teal .why-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--tcsk-shadow);
+}
+
+.why-card .why-icon {
+    font-size: 1.8rem;
+}
+
+.band-blue {
+    background: var(--tcsk-blue);
+    color: #fff;
+}
+
+.subscribe-card {
+    background: #fff;
+    color: var(--tcsk-dark);
+    border-radius: var(--tcsk-radius);
+    padding: 2rem;
+}
+
+/* routine steps + note boxes */
+.step-num {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--tcsk-blue);
+    color: #fff;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: .6rem;
+}
+
+.note-box {
+    border-left: 6px solid var(--tcsk-yellow);
+    background: var(--tcsk-yellow-tint);
+    border-radius: 0 12px 12px 0;
+    padding: 1rem 1.25rem;
+}
+
+.note-box.teal {
+    border-color: var(--tcsk-teal);
+    background: var(--tcsk-teal-tint);
+}
+
+.note-box.blue {
+    border-color: var(--tcsk-blue);
+    background: var(--tcsk-blue-tint);
+}
+
+/* 8. SPOT PANELS (Around Campus) ----------------------- */
+.spot-feature {
+    border: 2px solid var(--tcsk-dark);
+    border-radius: var(--tcsk-radius);
+    overflow: hidden;
+    background: #fff;
+}
+
+.spot-feature .photo {
+    border-bottom: 2px solid var(--tcsk-dark);
+}
+
+.spot-feature .spot-body {
+    padding: 1.75rem;
+}
+
+.spot-feature h3 {
+    font-size: 1.6rem;
+}
+
+.spot-feature dl {
+    margin: 1rem 0 0;
+}
+
+.spot-feature dt {
+    font-weight: 700;
+    margin-top: .9rem;
+}
+
+.spot-feature dd {
+    margin: 0;
+    color: #343a40;
+}
+
+.spot-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.spot-sticky {
+    position: sticky;
+    top: 1rem;
+}
+
+.spot-btn {
+    text-decoration: none;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    text-align: left;
+    width: 100%;
+    border: 2px solid var(--tcsk-dark);
+    border-top-width: 8px;
+    border-radius: 14px;
+    background: #fff;
+    padding: .9rem;
+    color: var(--tcsk-dark);
+    transition: transform .2s ease, background-color .2s ease, box-shadow .2s ease;
+}
+
+.spot-btn:nth-child(4n+1),
+.spot-btn:nth-child(4n+4) {
+    border-top-color: var(--tcsk-blue);
+}
+
+.spot-btn:nth-child(4n+2) {
+    border-top-color: var(--tcsk-yellow);
+}
+
+.spot-btn:nth-child(4n+3) {
+    border-top-color: var(--tcsk-teal);
+}
+
+.spot-btn:hover {
+    transform: translateX(6px);
+    background: var(--tcsk-blue-tint);
+    color: var(--tcsk-dark);
+}
+
+.spot-btn:nth-child(4n+2):hover {
+    background: var(--tcsk-yellow-tint);
+}
+
+.spot-btn:nth-child(4n+3):hover {
+    background: var(--tcsk-teal-tint);
+}
+
+.spot-btn .thumb {
+    width: 64px;
+    height: 64px;
+    flex: none;
+    border-radius: 12px;
+    border: 2px solid var(--tcsk-dark);
+    background: #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+}
+
+.spot-btn strong {
+    display: block;
+    font-family: "Poppins", sans-serif;
+}
+
+.spot-btn small {
+    color: var(--tcsk-muted);
+}
+
+.quick-table th {
+    background: var(--tcsk-dark);
+    color: #fff;
+    white-space: nowrap;
+}
+
+.quick-table td,
+.quick-table th {
+    vertical-align: middle;
+}
+
+.quick-table tbody tr {
+    transition: background-color .15s ease;
+}
+
+.quick-table tbody tr:hover {
+    background: var(--tcsk-blue-tint);
+}
+
+/* 9. BUDGET SECTION ------------------------------------ */
+.panel {
+    border: 2px solid var(--tcsk-dark);
+    border-radius: var(--tcsk-radius);
+    background: #fff;
+    padding: 1.5rem;
+}
+
+.panel.top-blue {
+    border-top: 8px solid var(--tcsk-blue);
+}
+
+.panel.top-yellow {
+    border-top: 8px solid var(--tcsk-yellow);
+}
+
+.panel.top-teal {
+    border-top: 8px solid var(--tcsk-teal);
+}
+
+.panel ul {
+    padding-left: 1.2rem;
+}
+
+.panel li {
+    margin-bottom: .5rem;
+}
+
+.calc-result {
+    background: var(--tcsk-teal-tint);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+}
+
+.split-row {
+    display: flex;
+    justify-content: space-between;
+    padding: .45rem 0;
+    border-bottom: 1px dashed #adb5bd;
+}
+
+.split-row:last-of-type {
+    border-bottom: 0;
+}
+
+.price-table {
+    font-size: .93rem;
+    margin-bottom: .5rem;
+}
+
+.price-table th {
+    background: var(--tcsk-light);
+}
+
+.price-table td:last-child,
+.price-table th:last-child {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.price-table tbody tr:hover {
+    background: var(--tcsk-yellow-tint);
+}
+
+.price-unknown {
+    color: var(--tcsk-muted);
+    font-style: italic;
+}
+
+.spot-card .card-body {
+    padding: 1.5rem;
+}
+
+.spot-card h3 {
+    font-size: 1.35rem;
+    margin-top: .5rem;
+}
+
+.spot-card .photo {
+    border-bottom: 2px solid var(--tcsk-dark);
+}
+
+.spot-card .facts {
+    font-size: .93rem;
+    padding-left: 0;
+    list-style: none;
+}
+
+.spot-card .facts li {
+    margin-bottom: .35rem;
+}
+
+.spot-card .facts strong {
+    color: var(--tcsk-dark);
+}
+
+/* 10. FOOTER ------------------------------------------- */
+.tcsk-footer {
+    background: var(--tcsk-dark);
+    color: #dee2e6;
+    padding: 3.5rem 0 1.5rem;
+}
+
+.tcsk-footer h2 {
+    font-size: 1.05rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.tcsk-footer .footer-brand {
+    color: var(--tcsk-teal);
+    font-size: 1.4rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+}
+
+.tcsk-footer a {
+    color: #dee2e6;
+    text-decoration: none;
+    transition: color .2s ease;
+}
+
+.tcsk-footer a.btn {
+    color: var(--tcsk-dark);
+}
+
+.tcsk-footer a.btn:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.tcsk-footer a:hover {
+    color: var(--tcsk-teal);
+    text-decoration: underline;
+}
+
+.tcsk-footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tcsk-footer li {
+    margin-bottom: .5rem;
+}
+
+.tcsk-footer .copyright {
+    border-top: 1px solid #495057;
+    margin-top: 2rem;
+    padding-top: 1.25rem;
+    font-size: .88rem;
+    color: #adb5bd;
+}
+
+/* 11. PHOTOS ------------------------------------------- */
+/* Every photo uses class="photo". The grey background shows while an image is missing. */
+.photo {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    background: #d9d9d9;
+}
+
+/* 12. RESPONSIVE --------------------------------------- */
+@media (max-width: 991.98px) {
+    .tcsk-nav .nav-link {
+        margin: .15rem 0;
     }
 
     section {
-        padding: 4rem 0;
+        padding: 3rem 0;
     }
 
-    .bg-soft {
-        background: var(--tcsk-light);
+    .hero {
+        padding: 3.5rem 0;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero .btn {
+        width: 100%;
     }
 
-    .text-muted-tcsk {
-        color: var(--tcsk-muted);
+    .quick-table {
+        font-size: .85rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
     }
 
-    :focus-visible {
-        outline: 3px solid var(--tcsk-yellow);
-        outline-offset: 2px;
+    * {
+        transition: none !important;
     }
 
-    /* short blue underline under section headings (from the hi-fi design) */
-    .heading-bar {
-        display: inline-block;
+    .card-tcsk:hover,
+    .spot-btn:hover,
+    .tcsk-nav .nav-link:hover {
+        transform: none;
     }
-
-    .heading-bar::after {
-        content: "";
-        display: block;
-        width: 64px;
-        height: 6px;
-        border-radius: 6px;
-        background: var(--tcsk-blue);
-        margin-top: 0.5rem;
-
-        /* skip link for keyboard users */
-        .skip-link {
-            position: absolute;
-            left: -999px;
-            top: 0;
-            background: var(--tcsk-yellow);
-            color: var(--tcsk-dark);
-            padding: .5rem 1rem;
-            z-index: 2000;
-            font-weight: 600;
-        }
-
-        .skip-link:focus {
-            left: 0;
-        }
-
-        /* 3. NAVBAR -------------------------------------------- */
-        .tcsk-nav {
-            background: #fff;
-            border-bottom: 3px solid var(--tcsk-dark);
-            padding: .6rem 0;
-        }
-
-        .tcsk-nav .navbar-brand {
-            color: var(--tcsk-blue);
-            font-size: 1.5rem;
-            transition: color .2s ease;
-        }
-
-        .tcsk-nav .navbar-brand:hover {
-            color: var(--tcsk-teal-dark);
-        }
-
-        .tcsk-nav .nav-link {
-            color: var(--tcsk-dark);
-            font-weight: 600;
-            border-radius: 999px;
-            padding: .5rem 1rem;
-            margin-left: .25rem;
-            transition: background-color .2s ease, color .2s ease, transform .2s ease;
-
-            /* every menu item gets its own hover color, matching its category color */
-            .tcsk-nav .nav-link:hover,
-            .tcsk-nav .nav-link:focus-visible {
-                transform: translateY(-2px);
-            }
-
-            .tcsk-nav .nav-link.hover-blue:hover,
-            .tcsk-nav .nav-link.hover-blue:focus-visible {
-                background: var(--tcsk-blue);
-                color: #fff;
-            }
-
-            .tcsk-nav .nav-link.hover-yellow:hover,
-            .tcsk-nav .nav-link.hover-yellow:focus-visible {
-                background: var(--tcsk-yellow);
-                color: var(--tcsk-dark);
-            }
-
-            .tcsk-nav .nav-link.hover-teal:hover,
-            .tcsk-nav .nav-link.hover-teal:focus-visible {
-                background: var(--tcsk-teal);
-                color: var(--tcsk-dark);
-            }
-
-            .tcsk-nav .nav-link.hover-dark:hover,
-            .tcsk-nav .nav-link.hover-dark:focus-visible {
-                background: var(--tcsk-dark);
-                color: #fff;
-            }
-
-            /* Mobile menu without JavaScript: a hidden checkbox controls the panel */
-            .menu-toggle {
-                position: absolute;
-                opacity: 0;
-                pointer-events: none;
-            }
-
-            .menu-button {
-                display: none;
-                font-size: 1.6rem;
-                line-height: 1;
-                border: 2px solid var(--tcsk-dark);
-                border-radius: 10px;
-                padding: .2rem .65rem;
-                cursor: pointer;
-                background: #fff;
-            }
-
-            .menu-button:hover {
-                background: var(--tcsk-yellow);
-            }
-
-            .menu-toggle:focus-visible+.menu-button {
-                outline: 3px solid var(--tcsk-yellow);
-                outline-offset: 2px;
-            }
-
-            @media (max-width: 991.98px) {
-                .menu-button {
-                    display: block;
-                }
-
-                .menu-panel {
-                    display: none;
-                    width: 100%;
-                }
-
-                .menu-toggle:checked~.menu-panel {
-                    display: block;
-                    margin-top: .75rem;
-                }
-            }
-
-            .tcsk-nav .container {
-                display: flex;
-                flex-wrap: wrap;
-                align-items: center;
-                justify-content: space-between;
-            }
-
-            @media (min-width: 992px) {
-                .menu-panel {
-                    display: flex;
-                    flex-grow: 1;
-                }
-            }
-
-            /* FAQ without JavaScript: <details> opens and closes by itself */
-            .faq details {
-                border-bottom: 1px solid #ced4da;
-                padding: .75rem 0;
-            }
-
-            .faq summary {
-                cursor: pointer;
-                font-weight: 600;
-                list-style-position: inside;
-            }
-
-            .faq summary:hover {
-                color: var(--tcsk-blue);
-            }
-
-            .faq details[open] summary {
-                color: var(--tcsk-blue);
-            }
-
-            .faq details p {
-                margin: .6rem 0 0;
-                color: #343a40;
-            }
-
-            /* 4. BUTTONS, BADGES, TAGS ------------------------------ */
-            .btn {
-                border-radius: 12px;
-                font-weight: 600;
-                padding: .7rem 1.4rem;
-                transition: all .2s ease;
-            }
-
-            .btn-tcsk-yellow {
-                background: var(--tcsk-yellow);
-                border: 2px solid var(--tcsk-yellow);
-                color: var(--tcsk-dark);
-            }
-
-            .btn-tcsk-yellow:hover {
-                background: var(--tcsk-dark);
-                border-color: var(--tcsk-dark);
-                color: #fff;
-                transform: translateY(-2px);
-            }
-
-            .btn-tcsk-light {
-                background: #f4f6ff;
-                border: 2px solid #f4f6ff;
-                color: var(--tcsk-blue);
-            }
-
-            .btn-tcsk-light:hover {
-                background: var(--tcsk-teal);
-                border-color: var(--tcsk-teal);
-                color: var(--tcsk-dark);
-                transform: translateY(-2px);
-            }
-
-            .btn-tcsk-blue {
-                background: var(--tcsk-blue);
-                border: 2px solid var(--tcsk-blue);
-                color: #fff;
-            }
-
-            .btn-tcsk-blue:hover {
-                background: var(--tcsk-yellow);
-                border-color: var(--tcsk-yellow);
-                color: var(--tcsk-dark);
-                transform: translateY(-2px);
-            }
-
-            .badge-free {
-                display: inline-block;
-                background: var(--tcsk-yellow);
-                color: var(--tcsk-dark);
-                font-weight: 700;
-                font-size: .8rem;
-                border-radius: 999px;
-                padding: .4rem .9rem;
-            }
-
-            .tag {
-                display: inline-block;
-                font-size: .78rem;
-                font-weight: 600;
-                border-radius: 999px;
-                padding: .25rem .75rem;
-                color: var(--tcsk-dark);
-            }
-
-            .tag-blue {
-                background: var(--tcsk-blue-tint);
-            }
-
-            .tag-yellow {
-                background: var(--tcsk-yellow-tint);
-            }
-
-            .tag-teal {
-                background: var(--tcsk-teal-tint);
-            }
-
-            .arrow-link {
-                font-weight: 600;
-                text-decoration: none;
-                color: var(--tcsk-blue);
-            }
-
-            .arrow-link span {
-                display: inline-block;
-                transition: transform .2s ease;
-            }
-
-            .arrow-link:hover span {
-                transform: translateX(5px);
-            }
-
-            .arrow-link:hover {
-                color: var(--tcsk-blue-dark);
-                text-decoration: underline;
-            }
-
-            /* 5. HERO ---------------------------------------------- */
-            .hero {
-                background: var(--tcsk-blue);
-                color: #fff;
-                padding: 5rem 0;
-            }
-
-            .hero h1 {
-                font-size: clamp(2.2rem, 5vw, 3.6rem);
-                line-height: 1.1;
-            }
-
-            .hero p.lead {
-                color: #e7ecff;
-                max-width: 34rem;
-            }
-
-            .hero .find-link {
-                color: #fff;
-                font-weight: 600;
-                text-decoration: none;
-            }
-
-            .hero .find-link:hover {
-                color: var(--tcsk-yellow);
-                text-decoration: underline;
-            }
-
-            .hero-img {
-                width: 100%;
-                height: auto;
-                display: block;
-                object-fit: cover;
-                border: 2px solid var(--tcsk-dark);
-                border-radius: 28px;
-                box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
-            }
-
-            /* 6. CARDS --------------------------------------------- */
-            .card-tcsk {
-                border: 2px solid var(--tcsk-dark);
-                border-radius: var(--tcsk-radius);
-                background: #fff;
-                height: 100%;
-                position: relative;
-                overflow: hidden;
-                transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
-            }
-
-            .card-tcsk:hover {
-                transform: translateY(-6px);
-                box-shadow: var(--tcsk-shadow);
-            }
-
-            .card-tcsk.top-blue {
-                border-top: 8px solid var(--tcsk-blue);
-            }
-
-            .card-tcsk.top-yellow {
-                border-top: 8px solid var(--tcsk-yellow);
-            }
-
-            .card-tcsk.top-teal {
-                border-top: 8px solid var(--tcsk-teal);
-            }
-
-            /* category cards: whole card changes color on hover */
-            .cat-card {
-                text-decoration: none;
-                color: var(--tcsk-dark);
-                display: block;
-                text-align: center;
-                padding: 2rem 1.25rem 1.5rem;
-            }
-
-            .cat-card .icon-circle {
-                width: 88px;
-                height: 88px;
-                border-radius: 50%;
-                margin: 0 auto 1rem;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 2.2rem;
-                transition: transform .2s ease;
-            }
-
-            .cat-card:hover .icon-circle {
-                transform: scale(1.1);
-            }
-
-            .cat-card h3 {
-                font-size: 1.2rem;
-            }
-
-            .cat-card p {
-                color: var(--tcsk-muted);
-                font-size: .95rem;
-            }
-
-            .cat-card .explore {
-                color: var(--tcsk-blue);
-                font-weight: 600;
-            }
-
-            .cat-card.top-blue:hover {
-                background: var(--tcsk-blue-tint);
-            }
-
-            .cat-card.top-yellow:hover {
-                background: var(--tcsk-yellow-tint);
-            }
-
-            .cat-card.top-teal:hover {
-                background: var(--tcsk-teal-tint);
-            }
-
-            .cat-card:hover .explore {
-                text-decoration: underline;
-            }
-
-            .ic-blue {
-                background: var(--tcsk-blue-tint);
-            }
-
-            .ic-yellow {
-                background: var(--tcsk-yellow-tint);
-            }
-
-            .ic-teal {
-                background: var(--tcsk-teal-tint);
-            }
-
-            /* tip + tool cards */
-            .tip-card .photo {
-                border-bottom: 2px solid var(--tcsk-dark);
-            }
-
-            .tip-card .card-body,
-            .tool-card .card-body {
-                padding: 1.4rem;
-            }
-
-            .tip-card h3 {
-                font-size: 1.2rem;
-                margin: .6rem 0 .4rem;
-            }
-
-            .tool-card .meta {
-                font-size: .92rem;
-                margin-bottom: .5rem;
-            }
-
-            .tool-card .meta strong {
-                color: var(--tcsk-dark);
-            }
-
-            .tool-card .btn-visit {
-                width: 100%;
-                background: var(--tcsk-teal-tint);
-                border: 2px solid var(--tcsk-teal-tint);
-                color: var(--tcsk-dark);
-            }
-
-            .tool-card .btn-visit:hover {
-                background: var(--tcsk-teal);
-                border-color: var(--tcsk-teal);
-            }
-
-            .tool-icon {
-                width: 52px;
-                height: 52px;
-                border-radius: 14px;
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 1.5rem;
-                margin-bottom: .75rem;
-            }
-
-            .tip-line {
-                background: var(--tcsk-yellow-tint);
-                border-radius: 10px;
-                padding: .5rem .75rem;
-                font-size: .9rem;
-            }
-
-            /* 7. SECTION HEADERS AND BANDS ------------------------- */
-            .page-header {
-                padding: 4rem 0 3rem;
-            }
-
-            .page-header .eyebrow {
-                display: block;
-                font-weight: 700;
-                font-size: .8rem;
-                text-transform: uppercase;
-                letter-spacing: .08em;
-                margin-bottom: .75rem;
-            }
-
-            .page-header .page-title {
-                font-size: clamp(1.9rem, 4vw, 3rem);
-            }
-
-            .page-header p.lead {
-                max-width: 42rem;
-            }
-
-            .header-teal {
-                background: var(--tcsk-teal);
-                color: var(--tcsk-dark);
-            }
-
-            .header-teal .eyebrow {
-                color: var(--tcsk-dark);
-            }
-
-            .header-light {
-                background: var(--tcsk-light);
-            }
-
-            .header-light .eyebrow {
-                color: var(--tcsk-blue);
-            }
-
-            .band-teal {
-                background: var(--tcsk-teal);
-                color: var(--tcsk-dark);
-            }
-
-            .band-teal .why-card {
-                background: #fff;
-                border-radius: var(--tcsk-radius);
-                padding: 1.75rem;
-                height: 100%;
-                transition: transform .2s ease, box-shadow .2s ease;
-            }
-
-            .band-teal .why-card:hover {
-                transform: translateY(-6px);
-                box-shadow: var(--tcsk-shadow);
-            }
-
-            .why-card .why-icon {
-                font-size: 1.8rem;
-            }
-
-            .band-blue {
-                background: var(--tcsk-blue);
-                color: #fff;
-            }
-
-            .subscribe-card {
-                background: #fff;
-                color: var(--tcsk-dark);
-                border-radius: var(--tcsk-radius);
-                padding: 2rem;
-            }
-
-            /* routine steps + note boxes */
-            .step-num {
-                width: 44px;
-                height: 44px;
-                border-radius: 50%;
-                background: var(--tcsk-blue);
-                color: #fff;
-                font-weight: 700;
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                margin-bottom: .6rem;
-            }
-
-            .note-box {
-                border-left: 6px solid var(--tcsk-yellow);
-                background: var(--tcsk-yellow-tint);
-                border-radius: 0 12px 12px 0;
-                padding: 1rem 1.25rem;
-            }
-
-            .note-box.teal {
-                border-color: var(--tcsk-teal);
-                background: var(--tcsk-teal-tint);
-            }
-
-            .note-box.blue {
-                border-color: var(--tcsk-blue);
-                background: var(--tcsk-blue-tint);
-            }
-
-            /* 8. SPOT PANELS (Around Campus) ----------------------- */
-            .spot-feature {
-                border: 2px solid var(--tcsk-dark);
-                border-radius: var(--tcsk-radius);
-                overflow: hidden;
-                background: #fff;
-            }
-
-            .spot-feature .photo {
-                border-bottom: 2px solid var(--tcsk-dark);
-            }
-
-            .spot-feature .spot-body {
-                padding: 1.75rem;
-            }
-
-            .spot-feature h3 {
-                font-size: 1.6rem;
-            }
-
-            .spot-feature dl {
-                margin: 1rem 0 0;
-            }
-
-            .spot-feature dt {
-                font-weight: 700;
-                margin-top: .9rem;
-            }
-
-            .spot-feature dd {
-                margin: 0;
-                color: #343a40;
-            }
-
-            .spot-list {
-                display: flex;
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .spot-sticky {
-                position: sticky;
-                top: 1rem;
-            }
-
-            .spot-btn {
-                text-decoration: none;
-                display: flex;
-                gap: 1rem;
-                align-items: center;
-                text-align: left;
-                width: 100%;
-                border: 2px solid var(--tcsk-dark);
-                border-top-width: 8px;
-                border-radius: 14px;
-                background: #fff;
-                padding: .9rem;
-                color: var(--tcsk-dark);
-                transition: transform .2s ease, background-color .2s ease, box-shadow .2s ease;
-            }
-
-            .spot-btn:nth-child(4n+1),
-            .spot-btn:nth-child(4n+4) {
-                border-top-color: var(--tcsk-blue);
-            }
-
-            .spot-btn:nth-child(4n+2) {
-                border-top-color: var(--tcsk-yellow);
-            }
-
-            .spot-btn:nth-child(4n+3) {
-                border-top-color: var(--tcsk-teal);
-            }
-
-            .spot-btn:hover {
-                transform: translateX(6px);
-                background: var(--tcsk-blue-tint);
-                color: var(--tcsk-dark);
-            }
-
-            .spot-btn:nth-child(4n+2):hover {
-                background: var(--tcsk-yellow-tint);
-            }
-
-            .spot-btn:nth-child(4n+3):hover {
-                background: var(--tcsk-teal-tint);
-            }
-
-            .spot-btn .thumb {
-                width: 64px;
-                height: 64px;
-                flex: none;
-                border-radius: 12px;
-                border: 2px solid var(--tcsk-dark);
-                background: #e9ecef;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 1.6rem;
-            }
-
-            .spot-btn strong {
-                display: block;
-                font-family: "Poppins", sans-serif;
-            }
-
-            .spot-btn small {
-                color: var(--tcsk-muted);
-            }
-
-            .quick-table th {
-                background: var(--tcsk-dark);
-                color: #fff;
-                white-space: nowrap;
-            }
-
-            .quick-table td,
-            .quick-table th {
-                vertical-align: middle;
-            }
-
-            .quick-table tbody tr {
-                transition: background-color .15s ease;
-            }
-
-            .quick-table tbody tr:hover {
-                background: var(--tcsk-blue-tint);
-            }
-
-            /* 9. BUDGET SECTION ------------------------------------ */
-            .panel {
-                border: 2px solid var(--tcsk-dark);
-                border-radius: var(--tcsk-radius);
-                background: #fff;
-                padding: 1.5rem;
-            }
-
-            .panel.top-blue {
-                border-top: 8px solid var(--tcsk-blue);
-            }
-
-            .panel.top-yellow {
-                border-top: 8px solid var(--tcsk-yellow);
-            }
-
-            .panel.top-teal {
-                border-top: 8px solid var(--tcsk-teal);
-            }
-
-            .panel ul {
-                padding-left: 1.2rem;
-            }
-
-            .panel li {
-                margin-bottom: .5rem;
-            }
-
-            .calc-result {
-                background: var(--tcsk-teal-tint);
-                border-radius: 12px;
-                padding: 1rem 1.25rem;
-            }
-
-            .split-row {
-                display: flex;
-                justify-content: space-between;
-                padding: .45rem 0;
-                border-bottom: 1px dashed #adb5bd;
-            }
-
-            .split-row:last-of-type {
-                border-bottom: 0;
-            }
-
-            .price-table {
-                font-size: .93rem;
-                margin-bottom: .5rem;
-            }
-
-            .price-table th {
-                background: var(--tcsk-light);
-            }
-
-            .price-table td:last-child,
-            .price-table th:last-child {
-                text-align: right;
-                white-space: nowrap;
-            }
-
-            .price-table tbody tr:hover {
-                background: var(--tcsk-yellow-tint);
-            }
-
-            .price-unknown {
-                color: var(--tcsk-muted);
-                font-style: italic;
-            }
-
-            .spot-card .card-body {
-                padding: 1.5rem;
-            }
-
-            .spot-card h3 {
-                font-size: 1.35rem;
-                margin-top: .5rem;
-            }
-
-            .spot-card .photo {
-                border-bottom: 2px solid var(--tcsk-dark);
-            }
-
-            .spot-card .facts {
-                font-size: .93rem;
-                padding-left: 0;
-                list-style: none;
-            }
-
-            .spot-card .facts li {
-                margin-bottom: .35rem;
-            }
-
-            .spot-card .facts strong {
-                color: var(--tcsk-dark);
-            }
-
-            /* 10. FOOTER ------------------------------------------- */
-            .tcsk-footer {
-                background: var(--tcsk-dark);
-                color: #dee2e6;
-                padding: 3.5rem 0 1.5rem;
-            }
-
-            .tcsk-footer h2 {
-                font-size: 1.05rem;
-                color: #fff;
-                margin-bottom: 1rem;
-            }
-
-            .tcsk-footer .footer-brand {
-                color: var(--tcsk-teal);
-                font-size: 1.4rem;
-                font-family: "Poppins", sans-serif;
-                font-weight: 700;
-            }
-
-            .tcsk-footer a {
-                color: #dee2e6;
-                text-decoration: none;
-                transition: color .2s ease;
-            }
-
-            .tcsk-footer a.btn {
-                color: var(--tcsk-dark);
-            }
-
-            .tcsk-footer a.btn:hover {
-                color: #fff;
-                text-decoration: none;
-            }
-
-            .tcsk-footer a:hover {
-                color: var(--tcsk-teal);
-                text-decoration: underline;
-            }
-
-            .tcsk-footer ul {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-            }
-
-            .tcsk-footer li {
-                margin-bottom: .5rem;
-            }
-
-            .tcsk-footer .copyright {
-                border-top: 1px solid #495057;
-                margin-top: 2rem;
-                padding-top: 1.25rem;
-                font-size: .88rem;
-                color: #adb5bd;
-            }
-
-            /* 11. PHOTOS ------------------------------------------- */
-            /* Every photo uses class="photo". The grey background shows while an image is missing. */
-            .photo {
-                display: block;
-                width: 100%;
-                height: auto;
-                aspect-ratio: 3 / 2;
-                object-fit: cover;
-                background: #d9d9d9;
-            }
-
-            /* 12. RESPONSIVE --------------------------------------- */
-            @media (max-width: 991.98px) {
-                .tcsk-nav .nav-link {
-                    margin: .15rem 0;
-                }
-
-                section {
-                    padding: 3rem 0;
-                }
-
-                .hero {
-                    padding: 3.5rem 0;
-                }
-            }
-
-            @media (max-width: 575.98px) {
-                .hero .btn {
-                    width: 100%;
-                }
-
-                .quick-table {
-                    font-size: .85rem;
-                }
-            }
-
-            @media (prefers-reduced-motion: reduce) {
-                html {
-                    scroll-behavior: auto;
-                }
-
-                * {
-                    transition: none !important;
-                }
-
-                .card-tcsk:hover,
-                .spot-btn:hover,
-                .tcsk-nav .nav-link:hover {
-                    transform: none;
-                }
-            }
+}
