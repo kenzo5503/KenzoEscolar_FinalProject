@@ -507,3 +507,175 @@
                 justify-content: center;
                 font-size: 1.5rem;
                 margin-bottom: .75rem;
+            }
+
+            .tip-line {
+                background: var(--tcsk-yellow-tint);
+                border-radius: 10px;
+                padding: .5rem .75rem;
+                font-size: .9rem;
+            }
+
+            /* 7. SECTION HEADERS AND BANDS ------------------------- */
+            .page-header {
+                padding: 4rem 0 3rem;
+            }
+
+            .page-header .eyebrow {
+                display: block;
+                font-weight: 700;
+                font-size: .8rem;
+                text-transform: uppercase;
+                letter-spacing: .08em;
+                margin-bottom: .75rem;
+            }
+
+            .page-header .page-title {
+                font-size: clamp(1.9rem, 4vw, 3rem);
+            }
+
+            .page-header p.lead {
+                max-width: 42rem;
+            }
+
+            .header-teal {
+                background: var(--tcsk-teal);
+                color: var(--tcsk-dark);
+            }
+
+            .header-teal .eyebrow {
+                color: var(--tcsk-dark);
+            }
+
+            .header-light {
+                background: var(--tcsk-light);
+            }
+
+            .header-light .eyebrow {
+                color: var(--tcsk-blue);
+            }
+
+            .band-teal {
+                background: var(--tcsk-teal);
+                color: var(--tcsk-dark);
+            }
+
+            .band-teal .why-card {
+                background: #fff;
+                border-radius: var(--tcsk-radius);
+                padding: 1.75rem;
+                height: 100%;
+                transition: transform .2s ease, box-shadow .2s ease;
+            }
+
+            .band-teal .why-card:hover {
+                transform: translateY(-6px);
+                box-shadow: var(--tcsk-shadow);
+            }
+
+            .why-card .why-icon {
+                font-size: 1.8rem;
+            }
+
+            .band-blue {
+                background: var(--tcsk-blue);
+                color: #fff;
+            }
+
+            .subscribe-card {
+                background: #fff;
+                color: var(--tcsk-dark);
+                border-radius: var(--tcsk-radius);
+                padding: 2rem;
+            }
+
+            /* routine steps + note boxes */
+            .step-num {
+                width: 44px;
+                height: 44px;
+                border-radius: 50%;
+                background: var(--tcsk-blue);
+                color: #fff;
+                font-weight: 700;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: .6rem;
+            }
+
+            .note-box {
+                border-left: 6px solid var(--tcsk-yellow);
+                background: var(--tcsk-yellow-tint);
+                border-radius: 0 12px 12px 0;
+                padding: 1rem 1.25rem;
+            }
+
+            .note-box.teal {
+                border-color: var(--tcsk-teal);
+                background: var(--tcsk-teal-tint);
+            }
+
+            .note-box.blue {
+                border-color: var(--tcsk-blue);
+                background: var(--tcsk-blue-tint);
+            }
+
+            /* 8. SPOT PANELS (Around Campus) ----------------------- */
+            .spot-feature {
+                border: 2px solid var(--tcsk-dark);
+                border-radius: var(--tcsk-radius);
+                overflow: hidden;
+                background: #fff;
+            }
+
+            .spot-feature .photo {
+                border-bottom: 2px solid var(--tcsk-dark);
+            }
+
+            .spot-feature .spot-body {
+                padding: 1.75rem;
+            }
+
+            .spot-feature h3 {
+                font-size: 1.6rem;
+            }
+
+            .spot-feature dl {
+                margin: 1rem 0 0;
+            }
+
+            .spot-feature dt {
+                font-weight: 700;
+                margin-top: .9rem;
+            }
+
+            .spot-feature dd {
+                margin: 0;
+                color: #343a40;
+            }
+
+            .spot-list {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .spot-sticky {
+                position: sticky;
+                top: 1rem;
+            }
+
+            .spot-btn {
+                text-decoration: none;
+                display: flex;
+                gap: 1rem;
+                align-items: center;
+                text-align: left;
+                width: 100%;
+                border: 2px solid var(--tcsk-dark);
+                border-top-width: 8px;
+                border-radius: 14px;
+                background: #fff;
+                padding: .9rem;
+                color: var(--tcsk-dark);
+                transition: transform .2s ease, background-color .2s ease, box-shadow .2s ease;
