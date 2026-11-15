@@ -911,7 +911,8 @@ section {
     color: #adb5bd;
 }
 
-/PHOTOSTYLE/ .photo {
+
+.photo {
     display: block;
     width: 100%;
     height: auto;
