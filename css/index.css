@@ -230,3 +230,101 @@
                 margin: .6rem 0 0;
                 color: #343a40;
             }
+
+            /* 4. BUTTONS, BADGES, TAGS ------------------------------ */
+            .btn {
+                border-radius: 12px;
+                font-weight: 600;
+                padding: .7rem 1.4rem;
+                transition: all .2s ease;
+            }
+
+            .btn-tcsk-yellow {
+                background: var(--tcsk-yellow);
+                border: 2px solid var(--tcsk-yellow);
+                color: var(--tcsk-dark);
+            }
+
+            .btn-tcsk-yellow:hover {
+                background: var(--tcsk-dark);
+                border-color: var(--tcsk-dark);
+                color: #fff;
+                transform: translateY(-2px);
+            }
+
+            .btn-tcsk-light {
+                background: #f4f6ff;
+                border: 2px solid #f4f6ff;
+                color: var(--tcsk-blue);
+            }
+
+            .btn-tcsk-light:hover {
+                background: var(--tcsk-teal);
+                border-color: var(--tcsk-teal);
+                color: var(--tcsk-dark);
+                transform: translateY(-2px);
+            }
+
+            .btn-tcsk-blue {
+                background: var(--tcsk-blue);
+                border: 2px solid var(--tcsk-blue);
+                color: #fff;
+            }
+
+            .btn-tcsk-blue:hover {
+                background: var(--tcsk-yellow);
+                border-color: var(--tcsk-yellow);
+                color: var(--tcsk-dark);
+                transform: translateY(-2px);
+            }
+
+            .badge-free {
+                display: inline-block;
+                background: var(--tcsk-yellow);
+                color: var(--tcsk-dark);
+                font-weight: 700;
+                font-size: .8rem;
+                border-radius: 999px;
+                padding: .4rem .9rem;
+            }
+
+            .tag {
+                display: inline-block;
+                font-size: .78rem;
+                font-weight: 600;
+                border-radius: 999px;
+                padding: .25rem .75rem;
+                color: var(--tcsk-dark);
+            }
+
+            .tag-blue {
+                background: var(--tcsk-blue-tint);
+            }
+
+            .tag-yellow {
+                background: var(--tcsk-yellow-tint);
+            }
+
+            .tag-teal {
+                background: var(--tcsk-teal-tint);
+            }
+
+            .arrow-link {
+                font-weight: 600;
+                text-decoration: none;
+                color: var(--tcsk-blue);
+            }
+
+            .arrow-link span {
+                display: inline-block;
+                transition: transform .2s ease;
+            }
+
+            .arrow-link:hover span {
+                transform: translateX(5px);
+            }
+
+            .arrow-link:hover {
+                color: var(--tcsk-blue-dark);
+                text-decoration: underline;
+            }
