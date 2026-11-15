@@ -1,31 +1,18 @@
-.logo {
-    color: #3B5BDB;
-    font-weight: bold;
-}
-
-.nav-menu {
-    list-style: none;
-    display: flex;
-
-}
-
-.nav-menu>li {
-    padding: 5px;
-    font-weight: bold;
-}
-
-.nav-menu>li>a {
-    color: black;
-}
-
-.nav-menu>li>a:hover {
-    color: #3B5BDB;
-}
-
-.navbar-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 25px;
-
-}
+:root {
+    --tcsk-blue: #3b5bdb;
+    --tcsk-blue-dark: #2f49b0;
+    --tcsk-blue-tint: #dbe4ff;
+    --tcsk-yellow: #ffb800;
+    --tcsk-yellow-dark: #e0a200;
+    --tcsk-yellow-tint: #fff0c2;
+    --tcsk-teal: #2ec4b6;
+    --tcsk-teal-dark: #0b7a6f;
+    /* teal for TEXT on white (passes contrast) */
+    --tcsk-teal-tint: #d3f4f0;
+    --tcsk-dark: #212529;
+    --tcsk-light: #f8f9fa;
+    --tcsk-muted: #5c636a;
+    --tcsk-radius: 16px;
+    --tcsk-shadow: 0 6px 18px rgba(33, 37, 41, 0.08);
+    --bs-link-color: var(--tcsk-blue);
+    --bs-link-hover-color: var(--tcsk-blue-dark);
