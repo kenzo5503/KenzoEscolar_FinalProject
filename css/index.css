@@ -152,7 +152,7 @@ section {
     color: #fff;
 }
 
-/* Mobile menu without JavaScript: a hidden checkbox controls the panel */
+
 .menu-toggle {
     position: absolute;
     opacity: 0;
