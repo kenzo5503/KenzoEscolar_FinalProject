@@ -913,3 +913,44 @@
                 object-fit: cover;
                 background: #d9d9d9;
             }
+
+            /* 12. RESPONSIVE --------------------------------------- */
+            @media (max-width: 991.98px) {
+                .tcsk-nav .nav-link {
+                    margin: .15rem 0;
+                }
+
+                section {
+                    padding: 3rem 0;
+                }
+
+                .hero {
+                    padding: 3.5rem 0;
+                }
+            }
+
+            @media (max-width: 575.98px) {
+                .hero .btn {
+                    width: 100%;
+                }
+
+                .quick-table {
+                    font-size: .85rem;
+                }
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                html {
+                    scroll-behavior: auto;
+                }
+
+                * {
+                    transition: none !important;
+                }
+
+                .card-tcsk:hover,
+                .spot-btn:hover,
+                .tcsk-nav .nav-link:hover {
+                    transform: none;
+                }
+            }
